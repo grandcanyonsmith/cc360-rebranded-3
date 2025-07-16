@@ -125,83 +125,355 @@
     /* =============================================
        0. HEADER STYLES
     ============================================= */
-    .header {
+    .cc-header {
       position: sticky;
       top: 0;
-      background: #ffffff;
-      border-bottom: 1px solid #e5e7eb;
-      z-index: 100;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
       font-family: var(--font-sans);
     }
-    .header-wrapper {
+    .cc-row {
       max-width: 1280px;
-      margin: 0 auto;
-      padding: 1rem 1.25rem;
+      margin-inline: auto;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-    }
-    .header-logo img {
-      height: 36px;
-      width: auto;
-    }
-    .header-nav {
-      display: flex;
       gap: 2rem;
+      justify-content: space-between;
+      padding: 0.7rem 1rem;
+    }
+    .cc-logo {
+      height: 40px;
+      flex-shrink: 0;
+    }
+    .cc-logoLink {
+      display: flex;
       align-items: center;
     }
-    .header-nav a {
-      color: #374151;
+    .cc-right {
+      display: flex;
+      align-items: center;
+      gap: 1.3rem;
+      margin-inline-start: auto;
+    }
+
+    /* NAVIGATION */
+    .cc-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .cc-nav > li {
+      list-style: none;
+      position: relative;
+    }
+    .cc-nav > li > a {
+      color: #111827;
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.2s ease;
-      font-size: 0.95rem;
+      position: relative;
+      padding-bottom: 2px;
     }
-    .header-nav a:hover {
-      color: var(--c360-blue);
+    .cc-nav > li > a::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: currentColor;
+      transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .header-cta {
-      background: var(--c360-red);
-      color: white;
-      padding: 0.625rem 1.5rem;
-      border-radius: 9999px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.875rem;
-      transition: background 0.2s ease;
+    .cc-nav > li > a:is(:hover, :focus-visible)::after {
+      width: 100%;
     }
-    .header-cta:hover {
-      background: var(--c360-red-hv);
+
+    .cc-ddBtn {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: #111827;
+      font-weight: 500;
+      padding: 0;
     }
-    .mobile-menu-btn {
+    .cc-ddBtn svg {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    [aria-expanded="true"] .cc-ddBtn svg {
+      transform: rotate(180deg);
+    }
+    .cc-ddWrap {
+      position: relative;
+    }
+    .cc-menu {
+      position: absolute;
+      top: calc(100% + 0.5rem);
+      left: 0;
+      min-width: 260px;
+      padding: 1rem;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.65rem;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
       display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: #374151;
-      cursor: pointer;
     }
-    @media (max-width: 768px) {
-      .header-nav {
+    .cc-menu.open {
+      display: block;
+    }
+    .cc-menu h3 {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin: 0.35rem 0 0.18rem;
+      padding: 0.22rem 0.8rem;
+      border-radius: 4px;
+      color: #fff;
+    }
+    .cc-menu a {
+      display: block;
+      padding: 0.55rem 0.8rem;
+      border-radius: 0.65rem;
+      font-size: 0.95em;
+      color: #374151;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .cc-menu a:is(:hover, :focus-visible) {
+      background: #64748b;
+      color: #fff;
+    }
+
+    /* AUTH */
+    .cc-login,
+    .cc-cta {
+      border-radius: 9999px;
+      white-space: nowrap;
+      font-weight: 600;
+      padding: 0.55rem 1.4rem;
+      text-decoration: none;
+    }
+    .cc-login {
+      background: #e2e8f0;
+      color: #111827;
+    }
+    .cc-cta {
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* HAMBURGER */
+    .cc-burger {
+      display: none;
+      width: 40px;
+      height: 40px;
+      background: #64748b;
+      border-radius: 0.25rem;
+      color: #fff;
+      align-items: center;
+      justify-content: center;
+    }
+    .cc-burger svg {
+      width: 22px;
+      height: 22px;
+    }
+    @media (max-width: 1000px) {
+      .cc-nav,
+      .cc-login {
         display: none;
       }
-      .mobile-menu-btn {
-        display: block;
+      .cc-burger {
+        display: inline-flex;
       }
     }
+
+    /* DRAWER */
+    .cc-drawer {
+      position: fixed;
+      inset: 0 0 0 auto;
+      width: clamp(275px, 80vw, 340px);
+      background: #fff;
+      transform: translateX(100%);
+      transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 900;
+      display: flex;
+      flex-direction: column;
+    }
+    .cc-drawer.open {
+      transform: none;
+    }
+    .cc-dhead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .cc-dnav details {
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .cc-dnav summary {
+      list-style: none;
+      padding: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: #111827;
+    }
+    .cc-dnav ul {
+      list-style: none;
+      padding: 0 1rem 1rem;
+      margin: 0;
+    }
+    .cc-dnav li a {
+      display: block;
+      padding: 0.55rem 0;
+      color: #374151;
+      text-decoration: none;
+    }
+    .cc-dlogin,
+    .cc-dcta {
+      margin: 1rem;
+      border-radius: 9999px;
+      text-align: center;
+      padding: 0.55rem 1.2rem;
+      text-decoration: none;
+      display: block;
+    }
+    .cc-dlogin {
+      background: #e2e8f0;
+      color: #111827;
+    }
+    .cc-dcta {
+      background: #2563eb;
+      color: #fff;
+    }
+    .cc-trap {
+      position: absolute;
+      opacity: 0;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    /* MODAL */
+    dialog.cc-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+      border: none;
+      border-radius: 0.65rem;
+      padding: 2rem;
+      width: 90%;
+      max-width: 420px;
+      background: #fff;
+      z-index: 1100;
+    }
+    dialog::backdrop {
+      background: rgba(0, 0, 0, 0.52);
+    }
+    .cc-form {
+      display: grid;
+      gap: 1rem;
+      margin-block-start: 1rem;
+    }
+    .cc-form input {
+      padding: 0.85rem 1rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 9999px;
+      background: transparent;
+      color: #111827;
+    }
+    .cc-form button {
+      background: #2563eb;
+      color: #fff;
+      padding: 0.85rem;
+      border-radius: 9999px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .cc-x {
+      width: 34px;
+      height: 34px;
+      background: #64748b;
+      border-radius: 0.25rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cc-x svg {
+      width: 20px;
+      height: 20px;
+      stroke: #fff;
+    }
+    .cc-legal {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-top: 1.1rem;
+      text-align: center;
+    }
+    .cc-legal a {
+      color: #2563eb;
+      text-decoration: underline;
+    }
+
     @media (prefers-color-scheme: dark) {
-      .header {
+      .cc-header {
+        background: rgba(30, 41, 59, 0.8);
+      }
+      .cc-nav > li > a,
+      .cc-ddBtn {
+        color: #f8fafc;
+      }
+      .cc-menu {
+        background: #0f172a;
+        border-color: #1e293b;
+      }
+      .cc-menu a {
+        color: #cbd5e1;
+      }
+      .cc-login {
         background: #1e293b;
-        border-bottom-color: #374151;
+        color: #f8fafc;
       }
-      .header-nav a {
-        color: #d1d5db;
+      .cc-drawer {
+        background: #0f172a;
       }
-      .header-nav a:hover {
-        color: var(--c360-blue);
+      .cc-dhead {
+        border-bottom-color: #1e293b;
       }
-      .mobile-menu-btn {
-        color: #d1d5db;
+      .cc-dnav details {
+        border-bottom-color: #1e293b;
+      }
+      .cc-dnav summary {
+        color: #f8fafc;
+      }
+      .cc-dnav li a {
+        color: #cbd5e1;
+      }
+      .cc-dlogin {
+        background: #1e293b;
+        color: #f8fafc;
+      }
+      dialog.cc-modal {
+        background: #0f172a;
+        color: #f8fafc;
+      }
+      .cc-form input {
+        border-color: #1e293b;
+        color: #f8fafc;
       }
     }
 
@@ -1298,25 +1570,224 @@
 </head>
 
 <body class="nebula-bg">
-  <!-- HEADER -->
-  <header class="header">
-    <div class="header-wrapper">
-      <div class="header-logo">
-        <a href="#home">
-          <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/c2DjRsOo4e13Od6ZTU6S/media/6794d427c21e374f32b4408c.png" alt="Course Creator 360" />
-        </a>
+  <!-- JSON Data for Header -->
+  <script id="cc-data" type="application/json">
+  {
+    "logo": "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/c2DjRsOo4e13Od6ZTU6S/media/6794d427c21e374f32b4408c.png",
+    "links": { "home": "/", "pricing": "https://www.coursecreator360.com/cc360pricing", "login": "https://app.coursecreator360.com/login", "cta": "#get-started" },
+    "sections": [
+      {
+        "title": "Create",
+        "color": "#2563eb",
+        "onDark": "#ebf4ff",
+        "items": [
+          ["Online Courses", "https://www.coursecreator360.com/courses"],
+          ["Communities & Memberships", "https://www.coursecreator360.com/communities"],
+          ["Coaching", "https://www.coursecreator360.com/coaching"],
+          ["Digital Downloads", "https://www.coursecreator360.com/downloads"],
+          ["Certifications & Challenges", "https://www.coursecreator360.com/certifications"],
+          ["Branded Mobile App", "https://www.coursecreator360.com/app"]
+        ]
+      },
+      {
+        "title": "Market",
+        "color": "#cdf600",
+        "onDark": "#1d2b00",
+        "items": [
+          ["Landing Pages", "https://www.coursecreator360.com/landing-pages"],
+          ["Funnels & Lead Magnets", "https://www.coursecreator360.com/funnels"],
+          ["Email & SMS Marketing", "https://www.coursecreator360.com/email-sms"],
+          ["Webinars", "https://www.coursecreator360.com/webinars"],
+          ["Affiliate Programs", "https://www.coursecreator360.com/affiliates"],
+          ["Social Automations", "https://www.coursecreator360.com/social"]
+        ]
+      },
+      {
+        "title": "Sell & Scale",
+        "color": "#f43f5e",
+        "onDark": "#fff1f3",
+        "items": [
+          ["Payment & Sales Pipelines", "https://www.coursecreator360.com/payments"],
+          ["Automations", "https://www.coursecreator360.com/automations"],
+          ["Analytics", "https://www.coursecreator360.com/analytics"],
+          ["CRM", "https://www.coursecreator360.com/crm"],
+          ["AI Tools", "https://www.coursecreator360.com/ai-tools"]
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- HEADER (autofilled by JS) -->
+  <header class="cc-header">
+    <div class="cc-row">
+      <a class="cc-logoLink"><img class="cc-logo" alt="Course Creator 360 logo"></a>
+      <div class="cc-right">
+        <nav aria-label="Primary"><ul class="cc-nav"></ul></nav>
+        <a class="cc-login">Login</a>
+        <a class="cc-cta cc-openModal"><span>Get Started</span> →</a>
+        <button class="cc-burger" aria-label="Open menu"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
       </div>
-      
-      <nav class="header-nav">
-        <a href="https://www.coursecreator360.com/create">Products</a>
-        <a href="#home">Home</a>
-        <a href="https://www.coursecreator360.com/cc360pricing">Pricing</a>
-        <a href="https://www.coursecreator360.com/create" class="header-cta">Start Free Trial</a>
-      </nav>
-      
-      <button class="mobile-menu-btn" aria-label="Menu">☰</button>
     </div>
   </header>
+
+  <aside class="cc-drawer" aria-label="Mobile menu" tabindex="-1">
+    <div class="cc-dhead">
+      <img class="cc-logo" alt="">
+      <button class="cc-x cc-closeDrawer" aria-label="Close"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <nav class="cc-dnav" aria-label="Mobile navigation"></nav>
+    <a class="cc-dlogin">Login</a>
+    <a class="cc-dcta cc-openModal">Get Started →</a>
+  </aside>
+
+  <dialog class="cc-modal" aria-labelledby="cc-title">
+    <button class="cc-x cc-closeModal" aria-label="Close"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <h2 id="cc-title">Get Started Today</h2>
+    <form class="cc-form" id="modal-email-form">
+      <input type="email" required placeholder="Email address" id="modal-email">
+      <button type="submit">Get Started →</button>
+    </form>
+    <p class="cc-legal">By proceeding you agree to our <a href="#">Terms</a> &amp; <a href="#">Privacy</a>.</p>
+  </dialog>
+
+  <!-- SCRIPT: ALL header, drawer, modal behavior -->
+  <script>
+  (()=>{'use strict';
+  const $=(s,c=document)=>c.querySelector(s), $$=(s,c=document)=>[...c.querySelectorAll(s)];
+  const data=JSON.parse(document.getElementById("cc-data").textContent);
+
+  /* LOGO & LINKS */
+  $('.cc-logo',document).src = data.logo;
+  $$('.cc-logo').forEach(i=>i.src = data.logo);
+  $('.cc-logoLink',document).href = data.links.home;
+  $('.cc-login',document).href = data.links.login;
+  $('.cc-dlogin',document).href = data.links.login;
+  $('.cc-cta',document).href = data.links.cta;
+  $('.cc-dcta',document).href = data.links.cta;
+
+  /* DESKTOP NAV */
+  const navUL=$('.cc-nav',document);
+  function simpleLink(txt,href){ return `<li><a href="${href}">${txt}</a></li>`; }
+  navUL.insertAdjacentHTML('beforeend',simpleLink('Home',data.links.home));
+
+  /* dropdown products */
+  const ddLi = document.createElement('li');
+  ddLi.className='cc-ddWrap';
+  ddLi.innerHTML=`
+    <button class="cc-ddBtn" aria-haspopup="true" aria-expanded="false">
+      Products
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 7l5 5 5-5"/></svg>
+    </button>
+    <div class="cc-menu" role="menu"></div>
+  `;
+  navUL.append(ddLi);
+  navUL.insertAdjacentHTML('beforeend',simpleLink('Pricing',data.links.pricing));
+
+  /* FILL DESKTOP DROPDOWN and MOBILE DRAWER NAV */
+  const menuBox = $('.cc-menu',ddLi), mobNav = $('.cc-dnav');
+  data.sections.forEach(sec=>{
+    menuBox.insertAdjacentHTML('beforeend',`<h3 style="background:${sec.color};color:${sec.onDark||"#fff"}">${sec.title}</h3>`);
+    sec.items.forEach(([t,h])=>menuBox.insertAdjacentHTML('beforeend',`<a href="${h}">${t}</a>`));
+    // drawer nav
+    const details = document.createElement('details');
+    details.innerHTML = `<summary>${sec.title}</summary><ul></ul>`;
+    sec.items.forEach(([t,h])=>$('ul',details).insertAdjacentHTML('beforeend',`<li><a href="${h}">${t}</a></li>`));
+    mobNav.append(details);
+  });
+
+  /* DESKTOP DROPDOWN MENU BEHAVIOR */
+  const ddBtn = $('.cc-ddBtn',ddLi);
+  const closeDD = ()=>{ ddBtn.setAttribute('aria-expanded','false'); menuBox.classList.remove('open');};
+  const openDD  = ()=>{ ddBtn.setAttribute('aria-expanded','true'); menuBox.classList.add('open');};
+  ddBtn.addEventListener('click',e=>{ e.stopPropagation(); menuBox.classList.contains('open')?closeDD():openDD(); });
+  window.addEventListener('click',closeDD);
+  ddBtn.addEventListener('keydown',e=>{
+    if(e.key==='ArrowDown'){ openDD(); $('a',menuBox).focus(); }
+  });
+
+  /* MOBILE DRAWER, burger, close, link traps */
+  const drawer = $('.cc-drawer'), burger = $('.cc-burger'), closeDraw=$('.cc-closeDrawer');
+  const closeDrawer = ()=>drawer.classList.remove('open');
+  const openDrawer = ()=>{
+    drawer.classList.add('open');
+    setTimeout(()=>{ // focus first nav or close btn
+      $('a,button',drawer).focus();
+    },120);
+  };
+  burger.addEventListener('click',openDrawer);
+  closeDraw.addEventListener('click',closeDrawer);
+
+  // esc closes drawer, tab trap
+  drawer.addEventListener('keydown',e=>{
+    if(e.key==='Escape'){ closeDrawer(); }
+    if(e.key==='Tab'){
+      const f=$$('a,button,[tabindex]:not([tabindex="-1"])',drawer);
+      if(!f.length)return;
+      const first=f[0],last=f.at(-1);
+      if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus();}
+      else if(!e.shiftKey && document.activeElement===last){e.preventDefault(); first.focus();}
+    }
+  });
+  // clicking ANY link in drawer closes it (includes nav and cta)
+  drawer.addEventListener('click', e => {
+    if(e.target.closest('a')) closeDrawer();
+  });
+
+  /* MODAL: open/close everywhere, always closes drawer if open */
+  const modal=$('.cc-modal'),modalOpen=$$('.cc-openModal'),modalClose=$('.cc-closeModal');
+  function closeDrawerIfOpen(){ drawer.classList.contains('open') && closeDrawer(); }
+  modalOpen.forEach(btn=>btn.addEventListener('click',e=>{
+    e.preventDefault(); closeDrawerIfOpen(); closeDD();
+    modal.showModal();
+    setTimeout(()=>$('input',modal).focus(),80);
+  }));
+  modalClose.addEventListener('click',()=>modal.close());
+  modal.addEventListener('cancel',e=>e.preventDefault()); // disables implicit close
+  modal.addEventListener('keydown',e=>{
+    if(e.key==='Escape')modal.close();
+    if(e.key==='Tab'){
+      const f=$$('input,button,a,[tabindex]:not([tabindex="-1"])',modal);
+      if(!f.length)return;
+      const first=f[0],last=f.at(-1);
+      if(e.shiftKey && document.activeElement===first){e.preventDefault();last.focus();}
+      else if(!e.shiftKey && document.activeElement===last){e.preventDefault();first.focus();}
+    }
+  });
+
+  /* HEADER SHADOW on scroll (nice touch) */
+  const header=$('.cc-header');
+  new IntersectionObserver(([i])=>{
+    header.style.boxShadow = i.intersectionRatio<1 ? '0 1px 6px rgb(0 0 0/.08)':'none';
+  },{threshold:1}).observe(header);
+
+  /* HANDLE EMAIL FORM SUBMISSIONS */
+  function handleEmailSubmission(email) {
+    const checkoutUrl = `https://checkout.coursecreator360.com/b/dR6cNB7Im6N85IA9AF?prefilled_email=${encodeURIComponent(email)}`;
+    window.location.href = checkoutUrl;
+  }
+
+  // Hero form
+  const heroForm = document.getElementById('hero-email-form');
+  if (heroForm) {
+    heroForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('hero-email').value;
+      handleEmailSubmission(email);
+    });
+  }
+
+  // Modal form
+  const modalForm = document.getElementById('modal-email-form');
+  if (modalForm) {
+    modalForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('modal-email').value;
+      handleEmailSubmission(email);
+    });
+  }
+  })();
+  </script>
 
   <!-- 1. HERO SECTION -->
   <section id="c360-hero">
@@ -1329,12 +1800,13 @@
         <p class="c360-desc">
           Create, market & sell your courses effortlessly with Course Creator 360.
         </p>
-        <form class="c360-form" onsubmit="return false;">
+        <form class="c360-form" id="hero-email-form">
           <input
             class="c360-input"
             type="email"
             required
             placeholder="Enter your email*"
+            id="hero-email"
           >
           <button class="c360-btn" type="submit">Start now</button>
         </form>
