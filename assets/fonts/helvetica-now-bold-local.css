@@ -1,0 +1,20 @@
+/* Helvetica Now Bold - Local System Font Stack */
+/* This provides a similar appearance to Helvetica Now Bold using system fonts */
+
+@font-face {
+  font-family: 'Helvetica Now Bold';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Helvetica Neue Bold'), 
+       local('Helvetica-Bold'), 
+       local('Arial Bold'),
+       local('Arial-Bold'),
+       local('System');
+}
+
+/* Fallback font stack for browsers that don't support local() */
+.helvetica-now-bold-fallback {
+  font-family: "Helvetica Neue", "Helvetica", "Arial", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+} 

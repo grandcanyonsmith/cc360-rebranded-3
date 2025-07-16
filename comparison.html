@@ -1,0 +1,281 @@
+
+<!-- ============  Course Creator 360 • Comparison Card (Local Assets)  ============ -->
+<!-- Performance optimizations -->
+<link rel="preload" href="assets/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/images/logos/kajabi.webp" as="image">
+<link rel="preload" href="assets/images/logos/teachable.svg" as="image">
+<link rel="preload" href="assets/images/logos/thinkific.webp" as="image">
+<link rel="preload" href="assets/images/logos/convertkit.webp" as="image">
+
+<style>
+    :root{
+      --navy-1:#0d1c32; --navy-2:#17345b;
+      --border:#1e4eff; --label:#9db9ff;
+      --copy:#eaf0ff;   --neon:#d4ff00;
+    }
+    @import url("assets/fonts/inter-local.css");
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  
+    .cc360-comp-card{
+      max-width:880px;margin-inline:auto;padding:32px 32px 40px;border-radius:28px;
+      background:linear-gradient(135deg,var(--navy-1),var(--navy-2));
+      border:1px solid var(--border);color:var(--copy);
+      font:400 14px/1.45 Inter,system-ui,sans-serif;
+      box-shadow:0 4px 20px rgba(0,0,0,.35);
+    }
+    .cc360-comp-card h2{font-weight:600;font-size:clamp(1.25rem,4vw,1.95rem);line-height:1.3;text-align:center;margin-bottom:32px}
+  
+    .cc360-comp-header{display:none;grid-template-columns:120px 1fr 96px 32px;font-weight:600;font-size:.9rem;color:var(--label);margin-bottom:16px}
+    .cc360-comp-header span:first-child{text-align:right;padding-right:8px}
+    .cc360-comp-header span:nth-child(2){padding-left:16px}
+    .cc360-comp-header span:nth-child(3){padding-left:8px}
+    .cc360-comp-header span:last-child{text-align:center}
+  
+    .cc360-comp-rows{display:flex;flex-direction:column;row-gap:18px}
+  
+    .cc360-comp-row{display:grid;grid-template-columns:120px 1fr 32px;column-gap:8px;align-items:center;font-size:.95rem}
+    @media(min-width:640px){
+      .cc360-comp-header{display:grid}
+      .cc360-comp-row{grid-template-columns:120px 1fr 96px 32px}
+    }
+  
+    .cc360-comp-logos{display:flex;justify-content:flex-end;gap:4px;padding-right:8px}
+    .cc360-comp-logo{width:36px;height:36px;border-radius:50%;background:#fff;object-fit:contain}
+  
+    .cc360-comp-text{display:flex;flex-direction:column;row-gap:2px}
+    .cc360-comp-title{font-weight:600;font-size:1.366em}
+    .cc360-comp-price-inline{font-size:.84rem;opacity:.9}
+    @media(min-width:640px){.cc360-comp-price-inline{display:none}}
+  
+    .cc360-comp-price-col{display:none;font-size:.88rem;padding-left:8px}
+    @media(min-width:640px){.cc360-comp-price-col{display:block}}
+  
+    .cc360-comp-tick{width:24px;height:24px;border-radius:50%;background:var(--neon);display:grid;place-items:center;color:var(--navy-1)}
+    .cc360-comp-tick svg{width:60%;height:60%;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+  
+          .cc360-comp-footer{margin-top:40px;text-align:center}
+      .cc360-comp-total{font-size:1.4rem;font-weight:600;text-decoration:line-through;color:#ff7b7b;margin-bottom:20px}
+    .cc360-comp-separator{height:1px;background:#374151;margin:20px 0;opacity:0.3}
+    .cc360-comp-savings{font-size:1.8rem;font-weight:700;color:var(--neon);margin-top:20px}
+    .cc360-comp-savings small{display:block;font-size:.7rem;color:#b9c4e6;margin-top:8px}
+  </style>
+  
+  <section class="cc360-comp-section" aria-labelledby="cc360-comp-heading">
+    <div class="cc360-comp-card">
+      <h2 id="cc360-comp-heading">“I cancelled all these softwares within 14 days.”</h2>
+  
+      <!-- Desktop column labels -->
+      <div class="cc360-comp-header" role="row">
+        <span role="columnheader">REPLACES</span>
+        <span role="columnheader">FEATURES</span>
+        <span role="columnheader">PRICE</span>
+        <span role="columnheader" aria-label="Included status"></span>
+      </div>
+  
+      <div class="cc360-comp-rows" role="table" aria-label="Software comparison table">
+  
+        <!-- Helper: R2 base -->
+        <!-- assets/images/logos/{filename} -->
+  
+        <!-- 1. Course building & hosting -->
+        <div class="cc360-comp-row" role="row">
+          <div class="cc360-comp-logos" role="cell" aria-label="Kajabi, Teachable, Thinkific">
+            <img class="cc360-comp-logo" src="assets/images/logos/kajabi.webp"       alt="Kajabi"        loading="lazy">
+            <img class="cc360-comp-logo" src="assets/images/logos/teachable.svg"    alt="Teachable"     loading="lazy">
+            <img class="cc360-comp-logo" src="assets/images/logos/thinkific.webp"    alt="Thinkific"     loading="lazy">
+          </div>
+          <div class="cc360-comp-text" role="cell">
+            <span class="cc360-comp-title">Course building &amp; hosting</span>
+            <span class="cc360-comp-price-inline">$149+/mo.</span>
+          </div>
+          <div class="cc360-comp-price-col" role="cell">$149+/mo.</div>
+          <span class="cc360-comp-tick" role="cell" aria-label="Included"><svg viewBox="0 0 24 24" fill="none"><path d="M6 13l4 4 8-9"/></svg></span>
+        </div>
+  
+        <!-- 2. Community & gamification -->
+        <div class="cc360-comp-row" role="row">
+          <div class="cc360-comp-logos" role="cell" aria-label="Skool, Mighty Networks, Circle">
+            <img class="cc360-comp-logo" src="assets/images/logos/skool.webp"             alt="Skool"            loading="lazy">
+            <img class="cc360-comp-logo" src="assets/images/logos/mighty-networks.webp"  alt="Mighty Networks" loading="lazy">
+            <img class="cc360-comp-logo" src="assets/images/logos/circle.webp"           alt="Circle"          loading="lazy">
+          </div>
+          <div class="cc360-comp-text" role="cell">
+            <span class="cc360-comp-title">Community &amp; gamification</span>
+            <span class="cc360-comp-price-inline">$99+/mo.</span>
+          </div>
+          <div class="cc360-comp-price-col" role="cell">$99+/mo.</div>
+          <span class="cc360-comp-tick" role="cell" aria-label="Included"><svg viewBox="0 0 24 24" fill="none"><path d="M6 13l4 4 8-9"/></svg></span>
+        </div>
+  
+        <!-- 3. Email sending & CRM -->
+        <div class="cc360-comp-row" role="row">
+          <div class="cc360-comp-logos" role="cell" aria-label="ConvertKit, HubSpot, ActiveCampaign">
+            <img class="cc360-comp-logo" src="assets/images/logos/convertkit.webp"  alt="ConvertKit"    loading="lazy">
+            <img class="cc360-comp-logo" src="assets/images/logos/hubspot.svg"      alt="HubSpot"       loading="lazy">
+            <img class="cc360-comp-logo" src="assets/images/logos/activecampaign.webp" alt="ActiveCampaign" loading="lazy">
+          </div>
+          <div class="cc360-comp-text" role="cell">
+            <span class="cc360-comp-title">Email sending &amp; CRM</span>
+            <span class="cc360-comp-price-inline">$199+/mo.</span>
+          </div>
+          <div class="cc360-comp-price-col" role="cell">$199+/mo.</div>
+          <span class="cc360-comp-tick" role="cell" aria-label="Included"><svg viewBox="0 0 24 24" fill="none"><path d="M6 13l4 4 8-9"/></svg></span>
+        </div>
+  
+        <!-- 4. Website & page building -->
+        <div class="cc360-comp-row" role="row">
+          <div class="cc360-comp-logos" role="cell" aria-label="Wix, Squarespace, WordPress">
+            <img class="cc360-comp-logo" src="assets/images/logos/wix.svg"           alt="Wix"         loading="lazy">
+            <img class="cc360-comp-logo" src="assets/images/logos/squarespace.webp"  alt="Squarespace" loading="lazy">
+            <img class="cc360-comp-logo" src="assets/images/logos/wordpress.svg"      alt="WordPress"   loading="lazy">
+          </div>
+          <div class="cc360-comp-text" role="cell">
+            <span class="cc360-comp-title">Website &amp; page building</span>
+            <span class="cc360-comp-price-inline">$35+/mo.</span>
+          </div>
+          <div class="cc360-comp-price-col" role="cell">$35+/mo.</div>
+          <span class="cc360-comp-tick" role="cell" aria-label="Included"><svg viewBox="0 0 24 24" fill="none"><path d="M6 13l4 4 8-9"/></svg></span>
+        </div>
+  
+        <!-- 5. Funnel building -->
+        <div class="cc360-comp-row" role="row">
+          <div class="cc360-comp-logos" role="cell" aria-label="ClickFunnels, Kartra">
+            <img class="cc360-comp-logo" src="assets/images/logos/clickfunnels.webp" alt="ClickFunnels" loading="lazy">
+            <img class="cc360-comp-logo" src="assets/images/logos/kartra.webp"       alt="Kartra"       loading="lazy">
+          </div>
+          <div class="cc360-comp-text" role="cell">
+            <span class="cc360-comp-title">Funnel building</span>
+            <span class="cc360-comp-price-inline">$199+/mo.</span>
+          </div>
+          <div class="cc360-comp-price-col" role="cell">$199+/mo.</div>
+          <span class="cc360-comp-tick" role="cell" aria-label="Included"><svg viewBox="0 0 24 24" fill="none"><path d="M6 13l4 4 8-9"/></svg></span>
+        </div>
+  
+        <!-- 6. Calendar booking -->
+        <div class="cc360-comp-row" role="row">
+          <div class="cc360-comp-logos" role="cell" aria-label="Calendly, HoneyBook">
+            <img class="cc360-comp-logo" src="assets/images/logos/calendly.webp" alt="Calendly" loading="lazy">
+            <img class="cc360-comp-logo" src="assets/images/logos/honeybook.webp" alt="HoneyBook" loading="lazy">
+          </div>
+          <div class="cc360-comp-text" role="cell">
+            <span class="cc360-comp-title">Calendar booking</span>
+            <span class="cc360-comp-price-inline">$49+/mo.</span>
+          </div>
+          <div class="cc360-comp-price-col" role="cell">$49+/mo.</div>
+          <span class="cc360-comp-tick" role="cell" aria-label="Included"><svg viewBox="0 0 24 24" fill="none"><path d="M6 13l4 4 8-9"/></svg></span>
+        </div>
+  
+        <!-- 7. Surveys & forms -->
+        <div class="cc360-comp-row" role="row">
+          <div class="cc360-comp-logos" role="cell" aria-label="Typeform">
+            <img class="cc360-comp-logo" src="assets/images/logos/typeform.svg" alt="Typeform" loading="lazy">
+          </div>
+          <div class="cc360-comp-text" role="cell">
+            <span class="cc360-comp-title">Surveys &amp; forms</span>
+            <span class="cc360-comp-price-inline">$25+/mo.</span>
+          </div>
+          <div class="cc360-comp-price-col" role="cell">$25+/mo.</div>
+          <span class="cc360-comp-tick" role="cell" aria-label="Included"><svg viewBox="0 0 24 24" fill="none"><path d="M6 13l4 4 8-9"/></svg></span>
+        </div>
+  
+        <!-- 8. Social automation -->
+        <div class="cc360-comp-row" role="row">
+          <div class="cc360-comp-logos" role="cell" aria-label="Buffer, Later">
+            <img class="cc360-comp-logo" src="assets/images/logos/buffer.webp" alt="Buffer" loading="lazy">
+            <img class="cc360-comp-logo" src="assets/images/logos/later.webp"  alt="Later"  loading="lazy">
+          </div>
+          <div class="cc360-comp-text" role="cell">
+            <span class="cc360-comp-title">Social automation</span>
+            <span class="cc360-comp-price-inline">$50+/mo.</span>
+          </div>
+          <div class="cc360-comp-price-col" role="cell">$50+/mo.</div>
+          <span class="cc360-comp-tick" role="cell" aria-label="Included"><svg viewBox="0 0 24 24" fill="none"><path d="M6 13l4 4 8-9"/></svg></span>
+        </div>
+  
+        <!-- 9. Automation -->
+        <div class="cc360-comp-row" role="row">
+          <div class="cc360-comp-logos" role="cell" aria-label="Zapier, Make">
+            <img class="cc360-comp-logo" src="assets/images/logos/zapier.webp" alt="Zapier" loading="lazy">
+            <img class="cc360-comp-logo" src="assets/images/logos/make.svg"   alt="Make"   loading="lazy">
+          </div>
+          <div class="cc360-comp-text" role="cell">
+            <span class="cc360-comp-title">Automation</span>
+            <span class="cc360-comp-price-inline">$99+/mo.</span>
+          </div>
+          <div class="cc360-comp-price-col" role="cell">$99+/mo.</div>
+          <span class="cc360-comp-tick" role="cell" aria-label="Included"><svg viewBox="0 0 24 24" fill="none"><path d="M6 13l4 4 8-9"/></svg></span>
+        </div>
+  
+        <!-- 10. Contracts & estimates -->
+        <div class="cc360-comp-row" role="row">
+          <div class="cc360-comp-logos" role="cell" aria-label="PandaDoc, Leadpages">
+            <img class="cc360-comp-logo" src="assets/images/logos/pandadoc.webp"  alt="PandaDoc"  loading="lazy">
+            <img class="cc360-comp-logo" src="assets/images/logos/leadpages.webp" alt="Leadpages" loading="lazy">
+          </div>
+          <div class="cc360-comp-text" role="cell">
+            <span class="cc360-comp-title">Contracts &amp; estimates</span>
+            <span class="cc360-comp-price-inline">$47+/mo.</span>
+          </div>
+          <div class="cc360-comp-price-col" role="cell">$47+/mo.</div>
+          <span class="cc360-comp-tick" role="cell" aria-label="Included"><svg viewBox="0 0 24 24" fill="none"><path d="M6 13l4 4 8-9"/></svg></span>
+        </div>
+  
+        <!-- 11. Online store -->
+        <div class="cc360-comp-row" role="row">
+          <div class="cc360-comp-logos" role="cell" aria-label="Gumroad, Shopify, WooCommerce">
+            <img class="cc360-comp-logo" src="assets/images/logos/gumroad.webp"     alt="Gumroad"      loading="lazy">
+            <img class="cc360-comp-logo" src="assets/images/logos/shopify.svg"     alt="Shopify"      loading="lazy">
+            <img class="cc360-comp-logo" src="assets/images/logos/woocommerce.svg" alt="WooCommerce"  loading="lazy">
+          </div>
+          <div class="cc360-comp-text" role="cell">
+            <span class="cc360-comp-title">Online store</span>
+            <span class="cc360-comp-price-inline">$29+/mo.</span>
+          </div>
+          <div class="cc360-comp-price-col" role="cell">$29+/mo.</div>
+          <span class="cc360-comp-tick" role="cell" aria-label="Included"><svg viewBox="0 0 24 24" fill="none"><path d="M6 13l4 4 8-9"/></svg></span>
+        </div>
+  
+        <!-- 12. Analytics -->
+        <div class="cc360-comp-row" role="row">
+          <div class="cc360-comp-logos" role="cell" aria-label="Google Analytics, Hotjar">
+            <img class="cc360-comp-logo" src="assets/images/logos/google-analytics.svg" alt="Google Analytics" loading="lazy">
+            <img class="cc360-comp-logo" src="assets/images/logos/hotjar.webp"          alt="Hotjar"           loading="lazy">
+          </div>
+          <div class="cc360-comp-text" role="cell">
+            <span class="cc360-comp-title">Analytics</span>
+            <span class="cc360-comp-price-inline">$39+/mo.</span>
+          </div>
+          <div class="cc360-comp-price-col" role="cell">$39+/mo.</div>
+          <span class="cc360-comp-tick" role="cell" aria-label="Included"><svg viewBox="0 0 24 24" fill="none"><path d="M6 13l4 4 8-9"/></svg></span>
+        </div>
+  
+        <!-- 13. Payment processing -->
+        <div class="cc360-comp-row" role="row">
+          <div class="cc360-comp-logos" role="cell" aria-label="Stripe, PayPal">
+            <img class="cc360-comp-logo" src="assets/images/logos/stripe.svg" alt="Stripe" loading="lazy">
+            <img class="cc360-comp-logo" src="assets/images/logos/paypal.svg" alt="PayPal" loading="lazy">
+          </div>
+          <div class="cc360-comp-text" role="cell">
+            <span class="cc360-comp-title">Payment processing</span>
+            <span class="cc360-comp-price-inline">$30+/mo.</span>
+          </div>
+          <div class="cc360-comp-price-col" role="cell">$30+/mo.</div>
+          <span class="cc360-comp-tick" role="cell" aria-label="Included"><svg viewBox="0 0 24 24" fill="none"><path d="M6 13l4 4 8-9"/></svg></span>
+        </div>
+  
+      </div><!-- /rows -->
+  
+      <div class="cc360-comp-footer" role="contentinfo">
+        <p class="cc360-comp-total">$1,166+/mo.</p>
+        <div class="cc360-comp-separator"></div>
+        <p class="cc360-comp-savings">
+          $79/mo.<br>
+          <small>Starting Plan — you save $1,087+/mo.</small>
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- ==============================  End Card  ============================== -->
+  

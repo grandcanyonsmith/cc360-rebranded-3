@@ -1,0 +1,119 @@
+<!-- ░░ CourseCreator360 • Support Highlights (auto light/dark mode) ░░ -->
+<!-- Performance optimizations -->
+<link rel="preload" href="assets/images/6788f5463a448001a0effcaf_d2f2ab47.webp" as="image">
+<link rel="preload" href="assets/images/6788f546953d2d6c10995ce5_95b1797e.webp" as="image">
+<link rel="stylesheet" href="assets/fonts/helvetica-now-bold-local.css">
+
+<style>
+  /* === CC360 Support Highlight · v2.1 (adds solid card background) === */
+  :root {
+    --text-color: #131313;      /* dark text for light mode */
+    --bg-color: #f4feff;        /* light‑mode background */
+    --card-bg: #ffffff;         /* card background in light mode */
+    --gap: 1rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text-color: #ffffff;    /* light text for dark mode */
+      --bg-color: #000000;      /* page background in dark mode */
+      --card-bg: #111111;       /* card background in dark mode */
+    }
+  }
+
+  #cc360-support {
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    padding: 2rem 1rem;
+    background: var(--bg-color);          /* section gets the theme bg too */
+  }
+
+  #cc360-support .wrap {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  /* intro copy */
+  #cc360-support h2 {
+    font: normal clamp(1rem, 3vw, 1.25rem)/1 "Arial Rounded MT Bold", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    margin-bottom: .5rem;
+    color: var(--text-color);
+  }
+  #cc360-support h3 {
+    font: 700 clamp(2rem, 5vw, 3rem)/1.1 "Helvetica Now Bold", sans-serif;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+  }
+  #cc360-support p {
+    font-size: clamp(1rem, 3vw, 1.125rem);
+    line-height: 1.6;
+    max-width: 600px;
+    color: var(--text-color);
+  }
+
+  /* card grid */
+  .cards {
+    display: flex;
+    gap: var(--gap);
+    flex-wrap: nowrap;
+  }
+  .card {
+    flex: 0 0 calc(25% - var(--gap));
+    border-radius: 1.5rem;
+    overflow: hidden;
+    background: var(--card-bg);     /* <<< solid background */
+  }
+  .card img {
+    width: 100%;
+    display: block;
+    filter: none;
+  }
+
+  /* mobile 2 × 2 */
+  @media (max-width: 768px) {
+    #cc360-support .wrap {
+      flex-direction: column;
+      padding: 1rem;
+    }
+    .cards {
+      flex-wrap: wrap;
+    }
+    .card {
+      flex: 0 0 calc(50% - var(--gap));
+      margin-bottom: var(--gap);
+    }
+  }
+</style>
+
+<section id="cc360-support" aria-labelledby="support-heading">
+  <div class="wrap">
+    <div class="intro">
+      <h2 id="support-heading">Not a techy? No problem</h2>
+      <h3>Get help from real people. No bots.</h3>
+      <p>Hate contacting support and waiting forever? Our users wait less than 50&nbsp;seconds on average.</p>
+    </div>
+
+    <div class="cards" role="region" aria-label="Support highlights">
+      <div class="card">
+        <img src="assets/images/6788f5463a448001a0effcaf_d2f2ab47.webp"
+             alt="50-second average response time" loading="lazy">
+      </div>
+      <div class="card">
+        <img src="assets/images/6788f546953d2d6c10995ce5_95b1797e.webp"
+             alt="98% customer‑satisfaction score" loading="lazy">
+      </div>
+      <div class="card">
+        <img src="assets/images/6788f5463a448001a0effcaf_d2f2ab47.webp"
+             alt="24/7 live‑chat support" loading="lazy">
+      </div>
+      <div class="card">
+        <img src="assets/images/6788f5463a448001a0effcaf_d2f2ab47.webp"
+             alt="Free training bonuses" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,217 @@
+/* Non-critical CSS - Loaded asynchronously */
+
+/* Testimonials Variables */
+:root {
+  --cc360tm-speed: 80s;
+  
+  /* Comparison Variables */
+  --navy-1: #0d1c32;
+  --navy-2: #17345b;
+  --border: #1e4eff;
+  --label: #9db9ff;
+  --copy: #eaf0ff;
+  --neon: #d4ff00;
+  
+  /* Info Section Variables */
+  --text-color: #131313;
+  --bg-color: #f4feff;
+  --card-bg: #ffffff;
+  --gap: 1rem;
+  
+  /* Pricing Variables */
+  --cc360p-blue: #0475ff;
+  --cc360p-blue-dark: #0d2d5b;
+  --cc360p-bg-start: #000;
+  --cc360p-bg-end: #001e44;
+  --cc360p-card: #e9f4ff;
+  --cc360p-text: #001e44;
+  --cc360p-body: #f4feff;
+  --cc360p-radius: 12px;
+  --cc360p-gap: 2rem;
+  --cc360p-max-width: 1200px;
+}
+
+/* Dark Mode for non-critical sections */
+@media (prefers-color-scheme: dark) {
+  .nebula-bg {
+    --space: #0b0b0d;
+    --power: .50;
+    --vignette: rgba(0, 0, 0, .65);
+  }
+}
+
+/* Reviews Section Styles */
+#c360-reviews {
+  background: inherit;
+  padding: 4rem 1.25rem;
+  text-align: center;
+}
+
+#c360-reviews h2 {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  margin-bottom: .75rem;
+  color: #111;
+}
+
+.c360-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  font-size: 1.125rem;
+  margin-bottom: 3rem;
+  color: var(--c360-gray);
+}
+
+.star {
+  color: #fbbf24;
+  font-size: 1.25rem;
+}
+
+.c360-carousel {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+#c360-track {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  transition: transform 0.5s ease;
+}
+
+.c360-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, .05);
+  text-align: left;
+}
+
+.c360-head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.c360-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.c360-init {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.c360-name {
+  font-weight: 600;
+  color: #111;
+}
+
+.c360-date {
+  font-size: .875rem;
+  color: var(--c360-gray);
+}
+
+.c360-stars {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+  color: #fbbf24;
+}
+
+.c360-stars span {
+  margin-left: .5rem;
+  color: var(--c360-gray);
+  font-size: .875rem;
+}
+
+.c360-title {
+  font-weight: 600;
+  margin-bottom: .75rem;
+  color: #111;
+}
+
+.c360-text {
+  color: var(--c360-gray);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.c360-text.clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.c360-text.open {
+  -webkit-line-clamp: unset;
+  display: block;
+}
+
+.c360-toggle {
+  background: none;
+  border: none;
+  color: var(--c360-blue);
+  cursor: pointer;
+  font-size: .875rem;
+  font-weight: 500;
+  padding: 0;
+}
+
+.c360-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, .9);
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
+  z-index: 10;
+}
+
+.c360-prev {
+  left: -24px;
+}
+
+.c360-next {
+  right: -24px;
+}
+
+.c360-nav:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+@media (min-width: 768px) {
+  #c360-track {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  #c360-track {
+    grid-template-columns: repeat(3, 1fr);
+  }
+} 
