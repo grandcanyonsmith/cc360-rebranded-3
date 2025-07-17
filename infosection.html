@@ -67,6 +67,12 @@
     overflow: hidden;
     background: var(--card-bg);     /* <<< solid background */
   }
+  
+  @media (prefers-color-scheme: dark) {
+    .card {
+      background: transparent;
+    }
+  }
   .card img {
     width: 100%;
     display: block;
