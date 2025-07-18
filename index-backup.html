@@ -1142,6 +1142,28 @@
       font-size: 0.875rem;
       color: #9ca3af;
     }
+      .back-to-top {
+        position: fixed;
+        right: 1rem;
+        bottom: 1rem;
+        background: var(--c360-blue);
+        color: #fff;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 1.25rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+      .back-to-top.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
     @media (max-width: 768px) {
       .footer-top {
         flex-direction: column;
@@ -1304,7 +1326,7 @@
   </style>
 </head>
 
-<body class="nebula-bg">
+<body id="top" class="nebula-bg">
   <!-- HEADER -->
   <header class="header">
     <div class="header-wrapper">
@@ -2601,10 +2623,10 @@
         </nav>
         
         <div class="footer-socials">
-          <a href="https://www.facebook.com/coursecreatorproFB" aria-label="Facebook">f</a>
-          <a href="https://www.youtube.com/@CourseCreator360" aria-label="YouTube">▶</a>
-          <a href="https://www.tiktok.com/@coursecreatorpro" aria-label="TikTok">♪</a>
-          <a href="https://www.instagram.com/coursecreator360/?hl=en" aria-label="Instagram">📷</a>
+          <a href="https://www.facebook.com/coursecreatorproFB" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+          <a href="https://www.youtube.com/@CourseCreator360" target="_blank" rel="noopener" aria-label="YouTube">▶</a>
+          <a href="https://www.tiktok.com/@coursecreatorpro" target="_blank" rel="noopener" aria-label="TikTok">♪</a>
+          <a href="https://www.instagram.com/coursecreator360/?hl=en" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
         </div>
       </div>
       
@@ -2622,6 +2644,7 @@
       </div>
     </div>
   </footer>
+  <a href="#top" class="back-to-top" aria-label="Back to top">↑</a>
 
   <!-- FAQ Interaction Script -->
   <script>
@@ -2642,6 +2665,16 @@
           button.setAttribute('aria-expanded', 'true');
         }
       });
+    });
+  </script>
+  <script>
+    const backToTop = document.querySelector(".back-to-top");
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 300) {
+        backToTop.classList.add("show");
+      } else {
+        backToTop.classList.remove("show");
+      }
     });
   </script>
 </body>
