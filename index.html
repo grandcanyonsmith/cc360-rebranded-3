@@ -2232,6 +2232,28 @@
       font-size: 0.875rem;
       color: #9ca3af;
     }
+    .back-to-top {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      background: var(--c360-blue);
+      color: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1.25rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .back-to-top.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
     @media (max-width: 768px) {
       .footer-top {
         flex-direction: column;
@@ -2385,7 +2407,7 @@
   </style>
 </head>
 
-<body class="nebula-bg">
+<body id="top" class="nebula-bg">
 
 
   <!-- Skip Link -->
@@ -3038,6 +3060,11 @@
     
     /* HANDLE EMAIL FORM SUBMISSIONS */
     function handleEmailSubmission(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert('Please enter a valid email address.');
+            return;
+        }
         const checkoutUrl = `https://checkout.coursecreator360.com/b/dR6cNB7Im6N85IA9AF?prefilled_email=${encodeURIComponent(email)}`;
         window.location.href = checkoutUrl;
     }
@@ -4419,10 +4446,10 @@
         </nav>
         
         <div class="footer-socials">
-          <a href="https://www.facebook.com/coursecreatorproFB" aria-label="Facebook">f</a>
-          <a href="https://www.youtube.com/@CourseCreator360" aria-label="YouTube">▶</a>
-          <a href="https://www.tiktok.com/@coursecreatorpro" aria-label="TikTok">♪</a>
-          <a href="https://www.instagram.com/coursecreator360/?hl=en" aria-label="Instagram">📷</a>
+          <a href="https://www.facebook.com/coursecreatorproFB" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+          <a href="https://www.youtube.com/@CourseCreator360" target="_blank" rel="noopener" aria-label="YouTube">▶</a>
+          <a href="https://www.tiktok.com/@coursecreatorpro" target="_blank" rel="noopener" aria-label="TikTok">♪</a>
+          <a href="https://www.instagram.com/coursecreator360/?hl=en" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
         </div>
       </div>
       
@@ -4440,6 +4467,7 @@
       </div>
     </div>
   </footer>
+  <a href="#top" class="back-to-top" aria-label="Back to top">↑</a>
 
   <!-- Testimonials Carousel Script -->
   <script>
@@ -4582,6 +4610,16 @@
     window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
   </script>
   <script defer src="/_vercel/speed-insights/script.js"></script>
+  <script>
+    const backToTop = document.querySelector(".back-to-top");
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 300) {
+        backToTop.classList.add("show");
+      } else {
+        backToTop.classList.remove("show");
+      }
+    });
+  </script>
 
 </body>
 </html> 
