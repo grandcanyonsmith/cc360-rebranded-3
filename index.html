@@ -1616,6 +1616,12 @@
         column-gap: 24px;
       }
     }
+    
+    /* Fix checkmark alignment on mobile */
+    .cc360-comp-tick {
+      justify-self: end;
+      margin-left: auto;
+    }
     .cc360-comp-logos {
       display: flex;
       justify-content: flex-end;
@@ -2551,31 +2557,80 @@
       overflow: hidden;
       margin-top: 0.25rem; /* SUPER tight - almost touching */
       margin-bottom: 0;
-      cursor: grab;
       user-select: none;
       padding: 0;
-      max-width: 1280px;
-      margin-left: auto;
-      margin-right: auto;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      position: relative;
     }
     
-    .c360-reviews-container:active {
-      cursor: grabbing;
+    /* Fade effect overlays */
+    #c360-hero .c360-reviews-container::before,
+    #c360-hero .c360-reviews-container::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    
+    #c360-hero .c360-reviews-container::before {
+      left: 0;
+      background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+    }
+    
+    #c360-hero .c360-reviews-container::after {
+      right: 0;
+      background: linear-gradient(to left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+    }
+    
+    /* Rating header */
+    .c360-reviews-header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-family: var(--font-sans);
+    }
+    
+    .c360-reviews-rating {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 0.5rem;
+    }
+    
+    .c360-reviews-rating .stars {
+      color: #0475FF;
+      font-size: 1rem;
+    }
+    
+    .c360-reviews-count {
+      font-size: 0.875rem;
+      color: #6b7280;
     }
     
     #c360-hero .c360-reviews-track {
       display: flex;
-      gap: 1.5rem;
-      transition: transform 0.1s ease-out;
+      gap: 2rem;
       will-change: transform;
+      /* Ensure smooth scrolling on mobile */
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      /* Duplicate content for seamless loop */
+      width: max-content;
     }
     
     #c360-hero .c360-reviews-track.auto-scroll {
-      animation: c360-slide-reviews 120s linear infinite;
+      animation: c360-slide-reviews 40s linear infinite;
     }
     
-    #c360-hero .c360-reviews-track.dragging {
-      animation: none !important;
+    #c360-hero .c360-reviews-track:hover {
+      animation-play-state: paused;
     }
     
     @keyframes c360-slide-reviews {
@@ -2586,16 +2641,28 @@
     /* Review Card */
     .c360-review-card {
       flex: 0 0 auto;
-      width: 350px;
-      min-height: 200px;
+      width: 320px;
+      min-height: 180px;
       background: #fff;
       border: 1px solid #e5e7eb;
       border-radius: 16px;
-      padding: 1.75rem;
+      padding: 1.5rem;
       display: flex;
       flex-direction: column;
       box-shadow: 0 2px 12px rgba(0,0,0,.08);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    /* Mobile optimizations for review cards */
+    @media (max-width: 768px) {
+      .c360-review-card {
+        width: 280px;
+        padding: 1.25rem;
+      }
+      
+      #c360-hero .c360-reviews-track {
+        gap: 1.5rem;
+      }
     }
     
     .c360-review-card:hover {
@@ -2677,6 +2744,24 @@
         color: #cbd5e1;
       }
       .c360-review-date {
+        color: #94a3b8;
+      }
+      
+      /* Dark mode fade effects */
+      #c360-hero .c360-reviews-container::before {
+        background: linear-gradient(to right, rgba(30,41,59,1) 0%, rgba(30,41,59,0) 100%);
+      }
+      
+      #c360-hero .c360-reviews-container::after {
+        background: linear-gradient(to left, rgba(30,41,59,1) 0%, rgba(30,41,59,0) 100%);
+      }
+      
+      /* Dark mode header */
+      .c360-reviews-rating {
+        color: #f1f5f9;
+      }
+      
+      .c360-reviews-count {
         color: #94a3b8;
       }
     }
@@ -3392,6 +3477,14 @@
     </div>
     
     <!-- Reviews Carousel (Trustpilot Reviews) -->
+    <div class="c360-reviews-header">
+      <div class="c360-reviews-rating">
+        <span>Excellent</span>
+        <span class="stars">★★★★★</span>
+        <span>4.9 out of 5</span>
+      </div>
+      <div class="c360-reviews-count">324 reviews</div>
+    </div>
     <div class="c360-reviews-container">
       <div class="c360-reviews-track">
         <!-- Card 1 - Cartapo -->
@@ -4725,104 +4818,13 @@
       
       if (!container || !track) return;
       
-      let isDragging = false;
-      let startPos = 0;
-      let currentTranslate = 0;
-      let prevTranslate = 0;
-      let animationID = 0;
-      let autoScrollStartTime = Date.now();
-      const autoScrollDuration = 120000;
-      const cardWidth = 374; // 350px card + 24px gap
-      
+      // Start auto-scroll animation
       track.classList.add('auto-scroll');
-      
-      // Event listeners
-      container.addEventListener('touchstart', dragStart);
-      container.addEventListener('touchend', dragEnd);
-      container.addEventListener('touchmove', drag);
-      container.addEventListener('mousedown', dragStart);
-      container.addEventListener('mouseup', dragEnd);
-      container.addEventListener('mouseleave', dragEnd);
-      container.addEventListener('mousemove', drag);
-      container.addEventListener('contextmenu', e => e.preventDefault());
-      container.addEventListener('keydown', handleKeyboard);
       
       // Accessibility
       container.setAttribute('tabindex', '0');
       container.setAttribute('role', 'region');
       container.setAttribute('aria-label', 'Customer testimonials carousel');
-      
-      function dragStart(event) {
-        const clientX = event.type.includes('mouse') ? event.clientX : event.touches[0].clientX;
-        startPos = clientX;
-        isDragging = true;
-        
-        track.classList.add('dragging');
-        
-        const now = Date.now();
-        const elapsed = (now - autoScrollStartTime) % autoScrollDuration;
-        const progress = elapsed / autoScrollDuration;
-        const trackWidth = track.scrollWidth / 2;
-        currentTranslate = -progress * trackWidth;
-        prevTranslate = currentTranslate;
-        
-        animationID = requestAnimationFrame(animation);
-        container.style.cursor = 'grabbing';
-      }
-      
-      function drag(event) {
-        if (!isDragging) return;
-        
-        const clientX = event.type.includes('mouse') ? event.clientX : event.touches[0].clientX;
-        const diff = clientX - startPos;
-        currentTranslate = prevTranslate + diff;
-      }
-      
-      function dragEnd() {
-        isDragging = false;
-        cancelAnimationFrame(animationID);
-        
-        const movedBy = currentTranslate - prevTranslate;
-        if (Math.abs(movedBy) < 100) {
-          currentTranslate = prevTranslate;
-        }
-        
-        prevTranslate = currentTranslate;
-        container.style.cursor = 'grab';
-        
-        setTimeout(() => {
-          if (!isDragging) {
-            track.classList.remove('dragging');
-            autoScrollStartTime = Date.now() - (Math.abs(currentTranslate) / (track.scrollWidth / 2) * autoScrollDuration);
-          }
-        }, 100);
-      }
-      
-      function animation() {
-        if (isDragging) {
-          track.style.transform = `translateX(${currentTranslate}px)`;
-          requestAnimationFrame(animation);
-        }
-      }
-      
-      function handleKeyboard(e) {
-        switch(e.key) {
-          case 'ArrowLeft':
-            e.preventDefault();
-            track.classList.add('dragging');
-            currentTranslate -= cardWidth;
-            prevTranslate = currentTranslate;
-            track.style.transform = `translateX(${currentTranslate}px)`;
-            break;
-          case 'ArrowRight':
-            e.preventDefault();
-            track.classList.add('dragging');
-            currentTranslate += cardWidth;
-            prevTranslate = currentTranslate;
-            track.style.transform = `translateX(${currentTranslate}px)`;
-            break;
-        }
-      }
     })();
   </script>
 
