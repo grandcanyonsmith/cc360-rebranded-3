@@ -2,6 +2,185 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.coursecreator360.com/#organization",
+        "name": "Course Creator 360",
+        "url": "https://www.coursecreator360.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.coursecreator360.com/assets/images/course-creator-360-logo.webp",
+          "width": 512,
+          "height": 512
+        },
+        "sameAs": [
+          "https://www.facebook.com/coursecreatorproFB",
+          "https://www.youtube.com/@CourseCreator360",
+          "https://www.tiktok.com/@coursecreatorpro",
+          "https://www.instagram.com/coursecreator360/"
+        ],
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "contactType": "Customer Support",
+          "email": "support@coursecreator360.com",
+          "availableLanguage": "en",
+          "contactOption": "TollFree"
+        }]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.coursecreator360.com/#website",
+        "url": "https://www.coursecreator360.com/",
+        "name": "Course Creator 360",
+        "publisher": {
+          "@id": "https://www.coursecreator360.com/#organization"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.coursecreator360.com/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": ["SoftwareApplication","Product"],
+        "@id": "https://www.coursecreator360.com/#saas",
+        "name": "Course Creator 360 – All-in-One Course-Creation Software",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web, iOS, Android",
+        "description": "Course Creator 360 lets creators build, market & sell courses, memberships, coaching and more – replacing up to 13+ other subscriptions. Proven by $30M+ in digital sales.",
+        "image": [
+          "https://www.coursecreator360.com/assets/images/course-page-mockup.webp"
+        ],
+        "url": "https://www.coursecreator360.com/",
+        "screenshot": "https://www.coursecreator360.com/assets/images/course-page-mockup.webp",
+        "publisher": {
+          "@id": "https://www.coursecreator360.com/#organization"
+        },
+        "offers": {
+          "@type": "AggregateOffer",
+          "url": "https://www.coursecreator360.com/cc360pricing",
+          "priceCurrency": "USD",
+          "lowPrice": "79",
+          "highPrice": "297",
+          "offerCount": 3,
+          "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "ratingCount": 300
+        },
+        "review": [
+          {
+            "@type": "Review",
+            "author": {
+              "@type": "Person",
+              "name": "Rob Edmonson"
+            },
+            "datePublished": "2025-05-29",
+            "name": "I am not new at marketing and business",
+            "reviewBody": "I've had several companies through my life ... I wish I had found Course Creator 360 earlier.",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5"
+            }
+          },
+          {
+            "@type": "Review",
+            "author": {
+              "@type": "Person",
+              "name": "Sheila Moreau"
+            },
+            "datePublished": "2025-05-29",
+            "name": "TRULY blown away by the customer service",
+            "reviewBody": "Within 48 hours they onboarded me and handled all the tech. Templates are so intuitive.",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5"
+            }
+          },
+          {
+            "@type": "Review",
+            "author": {
+              "@type": "Person",
+              "name": "Paul Riddolls"
+            },
+            "datePublished": "2025-05-28",
+            "name": "Juan was fantastic",
+            "reviewBody": "Amazing customer service and knowledge – the reason I signed up for a full year.",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5"
+            }
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.coursecreator360.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Course Creator 360?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It's an all-in-one platform where creators host courses, build communities, automate email/SMS marketing and run sales funnels without needing 13 separate tools."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does CC360 compare to Kajabi or Teachable?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "CC360 includes everything they offer plus email marketing, communities, funnels, automation and more – starting at just $79/month."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I migrate my existing courses?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Elite plans include free course & funnel migrations from platforms like Kajabi, Teachable or Thinkific. Migration help is also available as an add-on for other plans."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is there a free trial?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "All plans come with a 14-day free trial – no credit card required."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What kind of support do you offer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "24/7 live-chat with an average 50-second response time. Elite members also get priority support and bi-weekly coaching calls."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I cancel anytime?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely. There are no long-term contracts or cancellation fees. You'll keep access until the end of your current billing period."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Course Creator 360 - All-in-One Software for Course Creators</title>
   <meta name="description" content="Create, market & sell your courses effortlessly with Course Creator 360. Proven by $30M+ in digital sales.">
