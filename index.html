@@ -254,6 +254,7 @@
        ADDITIONAL HINTS / DISCOVERY
   ──────────────────────────────────────── -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://customer-t943x570k2jy8ms2.cloudflarestream.com" crossorigin>
   <link rel="dns-prefetch" href="https://go.coursecreator360.com">
   <meta http-equiv="Content-Language" content="en">
   <meta name="copyright" content="© 2025 Course Creator 360. All rights reserved.">
@@ -271,6 +272,12 @@
   <noscript>
     <link rel="stylesheet" href="assets/fonts/inter-local.css">
     <link rel="stylesheet" href="assets/fonts/helvetica-now-bold-local.css">
+  </noscript>
+
+  <!-- Non-critical CSS (async) -->
+  <link rel="preload" as="style" href="assets/css/non-critical.css" onload="this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="assets/css/non-critical.css">
   </noscript>
 
   
@@ -4868,7 +4875,27 @@
       } else {
         backToTop.classList.remove("show");
       }
-    });
+    }, { passive: true });
+  </script>
+
+  <!-- Progressive image loading/decoding enhancer -->
+  <script>
+    (function(){
+      const critical = new Set();
+      document.querySelectorAll('.logo-container img, .cc360-money').forEach(img => critical.add(img));
+      const enhance = () => {
+        for (const img of document.images) {
+          if (critical.has(img)) continue;
+          if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
+          if (!img.hasAttribute('decoding')) img.setAttribute('decoding', 'async');
+        }
+      };
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(enhance, { timeout: 1500 });
+      } else {
+        setTimeout(enhance, 600);
+      }
+    })();
   </script>
 
 </body>
