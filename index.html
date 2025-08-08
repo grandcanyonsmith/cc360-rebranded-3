@@ -1566,6 +1566,7 @@
       color: var(--copy);
       font: 400 14px/1.45 var(--font-sans);
       box-shadow: 0 4px 20px rgba(0,0,0,.35);
+      overflow: hidden;
     }
     .cc360-comp-card h2 {
       font-weight: 600;
@@ -1609,8 +1610,8 @@
     }
     .cc360-comp-row {
       display: grid;
-      grid-template-columns: 140px 1fr 80px;
-      column-gap: 24px;
+      grid-template-columns: minmax(88px, 28%) 1fr auto;
+      column-gap: 12px;
       align-items: center;
       font-size: .95rem;
     }
@@ -1619,40 +1620,50 @@
         display: grid;
       }
       .cc360-comp-row {
-        grid-template-columns: 140px 1fr 120px 80px;
+        grid-template-columns: 160px 1fr 120px 80px;
         column-gap: 24px;
       }
+      .cc360-comp-logo { width: 36px; height: 36px; }
+      .cc360-comp-tick { width: 24px; height: 24px; }
     }
     
     /* Fix checkmark alignment on mobile */
     .cc360-comp-tick {
       justify-self: end;
       margin-left: auto;
+      margin-right: 2px;
+      flex: 0 0 auto;
     }
     .cc360-comp-logos {
       display: flex;
       justify-content: flex-end;
       gap: 4px;
-      padding-right: 8px;
+      padding-right: 4px;
+      min-width: 0;
     }
     .cc360-comp-logo {
-      width: 36px;
-      height: 36px;
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
       background: #fff;
       object-fit: contain;
+      flex: 0 0 auto;
     }
     .cc360-comp-text {
       display: flex;
       flex-direction: column;
       row-gap: 2px;
+      min-width: 0;
     }
     .cc360-comp-title {
       font-weight: 400;
-      font-size: 1.366em;
+      font-size: 1.15em;
+      line-height: 1.2;
+      white-space: normal;
+      word-break: break-word;
     }
     .cc360-comp-price-inline {
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 600;
       opacity: 1;
     }
@@ -1675,8 +1686,8 @@
       }
     }
     .cc360-comp-tick {
-      width: 24px;
-      height: 24px;
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
       background: var(--neon);
       display: grid;
@@ -1684,8 +1695,8 @@
       color: var(--navy-1);
     }
     .cc360-comp-tick svg {
-      width: 60%;
-      height: 60%;
+      width: 62%;
+      height: 62%;
       stroke: currentColor;
       stroke-width: 3;
       stroke-linecap: round;
