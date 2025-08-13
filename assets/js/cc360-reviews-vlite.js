@@ -2,12 +2,14 @@
 const PLACEHOLDER='avatar-placeholder.svg',STAR='<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2.3 15 8l6.6.9-4.8 4.6 1.1 6.5L12 17.9 6.1 20l1.1-6.5-4.8-4.6L9 8z"/></svg>';
 
 // Use preloaded data or fallback to fetch
-const all = window.reviewsData || await fetch('assets/data/trustpilot-views.json').then(r=>r.json());
-document.getElementById('c360-total').textContent = all.length;
-document.getElementById('c360-avg').textContent  =
-  (all.reduce((s,r)=>s+(+r.stars||0),0)/all.length).toFixed(2);
+const all = window.reviewsData || await fetch('assets/data/reviews.json').then(r=>r.json());
+// guard if counters are not present in DOM
+const totalEl = document.getElementById('c360-total');
+const avgEl   = document.getElementById('c360-avg');
+if (totalEl) totalEl.textContent = all.length;
+if (avgEl)   avgEl.textContent   = (all.reduce((s,r)=>s+(+r.stars||0),0)/all.length).toFixed(2);
 
-const track   = document.getElementById('c360-track'),
+const track   = document.querySelector('.c360-reviews-track'),
       prevBtn = document.querySelector('.c360-prev'),
       nextBtn = document.querySelector('.c360-next'),
       VIS     = 12;                         // only 12 slides in memory

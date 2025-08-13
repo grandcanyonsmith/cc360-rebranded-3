@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Alex P.",
+    "date": "2025-05-29T10:00:00.000Z",
+    "stars": 5,
+    "title": "Setup was fast and painless",
+    "text": "Launched my first program in a weekend. The templates and onboarding made everything simple.",
+    "avatar": "assets/images/avatars/avatar-placeholder.svg"
+  },
+  {
+    "name": "Jordan M.",
+    "date": "2025-05-28T14:30:00.000Z",
+    "stars": 5,
+    "title": "Great support",
+    "text": "The team answered questions quickly and helped me migrate my content.",
+    "avatar": "assets/images/avatars/avatar-placeholder.svg"
+  },
+  {
+    "name": "Taylor R.",
+    "date": "2025-05-27T09:15:00.000Z",
+    "stars": 4,
+    "title": "All-in-one is convenient",
+    "text": "Nice to have courses, email, and funnels together. Saved me from juggling logins.",
+    "avatar": "assets/images/avatars/avatar-placeholder.svg"
+  }
+]
