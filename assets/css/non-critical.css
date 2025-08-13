@@ -42,7 +42,7 @@
 
 /* Reviews Section Styles */
 #c360-reviews {
-  background: transparent;
+  background: var(--site-bg);
   padding: 4rem 1.25rem;
   text-align: center;
 }

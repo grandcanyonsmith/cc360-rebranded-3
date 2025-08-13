@@ -2,16 +2,14 @@
   <!-- Background -->
   <rect width="180" height="60" fill="#f5f5f5" rx="4"/>
   
-  <!-- Trustpilot text -->
+  <!-- Placeholder text -->
   <text x="90" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">
-    Trustpilot
+    Reviews
   </text>
   
   <!-- 5 stars -->
   <g transform="translate(45, 35)">
-    <text x="0" y="0" font-family="Arial, sans-serif" font-size="16" fill="#00b67a">★★★★</text>
-    <text x="48" y="0" font-family="Arial, sans-serif" font-size="16" fill="#ddd">★</text>
-    <text x="48" y="0" font-family="Arial, sans-serif" font-size="16" fill="#00b67a" clip-path="url(#halfStar)">★</text>
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="16" fill="#0475ff">★★★★★</text>
   </g>
   
   <!-- Half star clip path -->

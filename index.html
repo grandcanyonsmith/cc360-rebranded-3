@@ -264,7 +264,6 @@
   <link rel="preload" href="assets/fonts/inter-600-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-700-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-800-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/images/money-floating-transparent.webp" as="image" fetchpriority="high">
   
   <!-- Stylesheets -->
   <link rel="stylesheet" href="assets/fonts/inter-local.css" media="print" onload="this.media='all'">
@@ -279,6 +278,10 @@
   <noscript>
     <link rel="stylesheet" href="assets/css/non-critical.css">
   </noscript>
+  <script defer src="assets/js/c360-reviews-boot-local.js"></script>
+  <script>
+    window.reviewsData = undefined; // rely on neutral assets/data/reviews.json
+  </script>
 
   
   <style>
@@ -303,6 +306,7 @@
       --text-color: #131313;
       --bg-color: #f4feff;
       --card-bg: #ffffff;
+      --site-bg: #f8fafc;
       --gap: 1rem;
       
       /* Pricing Variables */
@@ -370,13 +374,10 @@
 
     /* Base styles moved to critical section above */
 
-    /* Clean Background - Simplified */
-    .nebula-bg{min-height:100vh;background:linear-gradient(180deg, #0e1f3a 0%, #001e44 100%);background-attachment:fixed}
+    /* Clean Background - Unified site background */
+    .nebula-bg{min-height:100vh;background:var(--site-bg)}
     @media (prefers-color-scheme: dark) {
-      .nebula-bg {
-        background: linear-gradient(180deg, #0b1a33 0%, #001633 100%);
-        background-attachment: fixed;
-      }
+      .nebula-bg { background:#111D2C }
     }
 
     /* =============================================
@@ -1539,15 +1540,11 @@
     ============================================= */
     .cc360-comp-section {
       padding: 4rem 1.25rem;
-      background: linear-gradient(180deg, #0e1f3a 0%, #001e44 100%);
-      background-attachment: fixed;
+      background: var(--site-bg);
     }
     
     @media (prefers-color-scheme: dark) {
-      .cc360-comp-section {
-        background: linear-gradient(180deg, #0b1a33 0%, #001633 100%);
-        background-attachment: fixed;
-      }
+      .cc360-comp-section { background:#111D2C }
     }
     .cc360-comp-card {
       max-width: 880px;
@@ -1722,20 +1719,16 @@
     /* =============================================
        4. INFO SECTION STYLES - PARALLAX SLIDER
     ============================================= */
-    .cc360-parallax-section {
+        .cc360-parallax-section {
       position: relative;
       min-height: 600px;
       overflow: hidden;
-      background: linear-gradient(180deg, #0e1f3a 0%, #001e44 100%);
-      background-attachment: fixed;
+      background: var(--site-bg);
       font-family: var(--font-sans);
     }
-
+    
     @media (prefers-color-scheme: dark) {
-      .cc360-parallax-section {
-        background: linear-gradient(180deg, #0b1a33 0%, #001633 100%);
-        background-attachment: fixed;
-      }
+      .cc360-parallax-section { background:#111D2C }
     }
 
     .cc360-parallax-container {
@@ -1990,15 +1983,11 @@
       padding: 5rem 2rem;
       margin: 0 auto;
       max-width: 1180px;
-      background: radial-gradient(ellipse at right center, rgba(4, 117, 255, 0.03) 0%, transparent 70%), 
-                  linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 50%, #f8fafc 100%);
+      background: var(--site-bg);
     }
     
     @media (prefers-color-scheme: dark) {
-      .cc360-hero-section {
-        background: radial-gradient(ellipse at right center, rgba(4, 117, 255, 0.08) 0%, transparent 70%), 
-                    linear-gradient(135deg, #111D2C 0%, #0E325E 50%, #111D2C 100%);
-      }
+      .cc360-hero-section { background:#111D2C }
     }
     .cc360-hero {
       font-family: var(--font-sans);
@@ -2117,8 +2106,7 @@
       min-height: 100%;
       scroll-behavior: smooth;
       padding: 4rem 1rem;
-      background: radial-gradient(ellipse at bottom center, rgba(14, 50, 94, 0.15) 0%, transparent 60%), 
-                  linear-gradient(135deg, #111D2C 0%, #0E325E 50%, #111D2C 100%);
+      background: var(--site-bg);
     }
     .cc360p-wrap {
       max-width: var(--cc360p-max-width);
@@ -2424,9 +2412,8 @@
        9. FOOTER SECTION STYLES
     ============================================= */
     .footer {
-      background: radial-gradient(ellipse at bottom, rgba(14, 50, 94, 0.12) 0%, transparent 50%), 
-                  linear-gradient(180deg, #111D2C 0%, #0E325E 100%);
-      color: #d1d5db;
+      background: var(--site-bg);
+      color: #1f2937;
       padding: 3rem 1.25rem 2rem;
       font-family: var(--font-sans);
     }
@@ -2620,6 +2607,7 @@
       color: #0475FF;
       font-size: 1rem;
     }
+    .c360-reviews-count { color: #6b7280; }
     
     .c360-reviews-count {
       font-size: 0.875rem;
@@ -2795,7 +2783,7 @@
           <div class="logo-container">
             <a href="https://www.coursecreator360.com/">
               <img alt="Course Creator 360 Logo" height="32" src="assets/images/course-creator-360-logo.webp" width="120"/>
-              <img alt="Course Creator 360 Logo" height="32" src="assets/images/course-creator-360-logo-dark.png" width="120" data-dark-src="true"/>
+              <img alt="Course Creator 360 Logo" height="32" src="assets/images/course-creator-360-logo-dark.png" width="120" data-dark-src="true" loading="lazy" decoding="async"/>
             </a>
           </div>
           
@@ -3141,7 +3129,7 @@
     <div class="mobile-menu-header">
       <a href="https://www.coursecreator360.com">
         <img alt="Course Creator 360 Logo" height="32" src="assets/images/course-creator-360-logo.webp" width="120"/>
-        <img alt="Course Creator 360 Logo" height="32" src="assets/images/course-creator-360-logo-dark.png" width="120" data-dark-src="true"/>
+        <img alt="Course Creator 360 Logo" height="32" src="assets/images/course-creator-360-logo-dark.png" width="120" data-dark-src="true" loading="lazy" decoding="async"/>
       </a>
       <button aria-label="Close mobile menu" data-cc360-toggle="mobile-menu" type="button" class="hamburger-btn">
         <!-- X Mark icon (mini 20 solid) -->
@@ -3488,7 +3476,7 @@
       ></iframe>
     </div>
     
-    <!-- Reviews Carousel (Trustpilot Reviews) -->
+    <!-- Reviews Carousel (Customer Reviews) -->
     <div class="c360-reviews-header">
       <div class="c360-reviews-rating">
         <span>Excellent</span>
@@ -3729,7 +3717,7 @@
         <h3 role="columnheader">REPLACES</h3>
         <h3 role="columnheader">FEATURES</h3>
         <h3 role="columnheader">PRICE</h3>
-        <img src="assets/images/logos/SecondaryLogo_360_White.png" alt="CC360" style="height: 40px; margin: 0 auto; display: block;">
+        <img src="assets/images/course-creator-360-logo.webp" alt="CC360" style="height: 40px; margin: 0 auto; display: block;">
       </div>
   
       <div class="cc360-comp-rows" role="table" aria-label="Software comparison table">
@@ -4037,17 +4025,17 @@
   <!-- 5. PROVEN TEMPLATES SECTION -->
   <section class="cc360-hero-section">
     <div class="cc360-hero" role="region" aria-label="Course Creator 360 promotion">
-      <!-- Hero Icon (critical for brand; eager load) -->
-      <picture>
-        <source srcset="assets/images/money-floating-transparent.webp" type="image/webp">
-        <img
-          src="assets/images/money-floating-transparent.webp"
-          alt="Floating money"
-          class="cc360-money"
-          width="180" height="180"
-          fetchpriority="high" loading="eager" decoding="async"
-        >
-      </picture>
+      <!-- Hero Icon (lightweight inline SVG) -->
+      <svg class="cc360-money" width="180" height="180" viewBox="0 0 180 180" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="cash" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#28c1ff"/>
+            <stop offset="100%" stop-color="#006de0"/>
+          </linearGradient>
+        </defs>
+        <circle cx="90" cy="90" r="80" fill="url(#cash)"/>
+        <text x="90" y="105" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="64" font-weight="800" fill="#ffffff">$</text>
+      </svg>
     
       <!-- Value Prop -->
       <h2>Proven by<br>$30,000,000&nbsp;in Digital Sales</h2>
@@ -4062,7 +4050,9 @@
           <img src="assets/images/course-page-mockup.webp"
                alt="Battle‑tested templates"
                width="160" height="160"
-               loading="lazy" decoding="async">
+               loading="lazy" decoding="async"
+               srcset="assets/images/course-page-mockup.webp 320w"
+               sizes="(max-width: 480px) 120px, 160px">
           <p>Battle‑tested<br>Templates</p>
         </div>
     
@@ -4789,7 +4779,7 @@
       <div class="footer-top">
         <div class="footer-logo">
           <img src="assets/images/course-creator-360-logo.webp" alt="Course Creator 360" />
-          <img src="assets/images/course-creator-360-logo-dark.png" alt="Course Creator 360" data-dark-src="true" />
+          <img src="assets/images/course-creator-360-logo-dark.png" alt="Course Creator 360" data-dark-src="true" loading="lazy" decoding="async" />
         </div>
         
         <nav class="footer-nav">
