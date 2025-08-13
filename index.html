@@ -371,14 +371,11 @@
     /* Base styles moved to critical section above */
 
     /* Clean Background - Simplified */
-    .nebula-bg{min-height:100vh;background:radial-gradient(ellipse at 30% 0%, rgba(4, 117, 255, 0.05) 0%, transparent 50%), 
-               radial-gradient(ellipse at 70% 100%, rgba(14, 50, 94, 0.03) 0%, transparent 50%),
-               linear-gradient(135deg, #f8fafc 0%, #e6f2ff 50%, #f0f7ff 100%);background-attachment:fixed}
+    .nebula-bg{min-height:100vh;background:linear-gradient(180deg, #0e1f3a 0%, #001e44 100%);background-attachment:fixed}
     @media (prefers-color-scheme: dark) {
       .nebula-bg {
-        background: radial-gradient(ellipse at 30% 0%, rgba(4, 117, 255, 0.1) 0%, transparent 50%), 
-                    radial-gradient(ellipse at 70% 100%, rgba(14, 50, 94, 0.08) 0%, transparent 50%),
-                    linear-gradient(135deg, #111D2C 0%, #0E325E 50%, #111D2C 100%);
+        background: linear-gradient(180deg, #0b1a33 0%, #001633 100%);
+        background-attachment: fixed;
       }
     }
 
@@ -1546,14 +1543,14 @@
     ============================================= */
     .cc360-comp-section {
       padding: 4rem 1.25rem;
-      background: radial-gradient(ellipse at left center, rgba(14, 50, 94, 0.03) 0%, transparent 70%), 
-                  linear-gradient(135deg, #e6f2ff 0%, #f0f7ff 50%, #f8fafc 100%);
+      background: linear-gradient(180deg, #0e1f3a 0%, #001e44 100%);
+      background-attachment: fixed;
     }
     
     @media (prefers-color-scheme: dark) {
       .cc360-comp-section {
-        background: radial-gradient(ellipse at left center, rgba(14, 50, 94, 0.1) 0%, transparent 70%), 
-                    linear-gradient(135deg, #111D2C 0%, #0E325E 50%, #111D2C 100%);
+        background: linear-gradient(180deg, #0b1a33 0%, #001633 100%);
+        background-attachment: fixed;
       }
     }
     .cc360-comp-card {
@@ -1733,15 +1730,15 @@
       position: relative;
       min-height: 600px;
       overflow: hidden;
-      background: radial-gradient(ellipse at center, rgba(4, 117, 255, 0.04) 0%, transparent 70%), 
-                  linear-gradient(135deg, #f8fafc 0%, #f0f7ff 50%, #e6f2ff 100%);
+      background: linear-gradient(180deg, #0e1f3a 0%, #001e44 100%);
+      background-attachment: fixed;
       font-family: var(--font-sans);
     }
 
     @media (prefers-color-scheme: dark) {
       .cc360-parallax-section {
-        background: radial-gradient(ellipse at center, rgba(4, 117, 255, 0.08) 0%, transparent 70%), 
-                    linear-gradient(135deg, #111D2C 0%, #0E325E 50%, #111D2C 100%);
+        background: linear-gradient(180deg, #0b1a33 0%, #001633 100%);
+        background-attachment: fixed;
       }
     }
 
@@ -1903,6 +1900,7 @@
       height: 100%;
       overflow: hidden;
       z-index: 1;
+      display: none;
     }
 
     .cc360-parallax-shape {
@@ -3901,8 +3899,8 @@
         <!-- 12. Analytics -->
         <div class="cc360-comp-row" role="row">
           <div class="cc360-comp-logos" role="cell" aria-label="Google Analytics, Hotjar">
-            <img class="cc360-comp-logo" src="assets/images/logos/google-analytics.svg" alt="Google Analytics" loading="lazy">
-            <img class="cc360-comp-logo" src="assets/images/logos/hotjar.webp"          alt="Hotjar"           loading="lazy">
+            <img class="cc360-comp-logo" src="https://cdn.simpleicons.org/googleanalytics/ef6c00" alt="Google Analytics" loading="lazy">
+            <img class="cc360-comp-logo" src="https://cdn.simpleicons.org/hotjar/ff3b30"          alt="Hotjar"           loading="lazy">
           </div>
           <div class="cc360-comp-text" role="cell">
             <span class="cc360-comp-title">Analytics</span>
@@ -3915,8 +3913,8 @@
         <!-- 13. Payment processing -->
         <div class="cc360-comp-row" role="row">
           <div class="cc360-comp-logos" role="cell" aria-label="Stripe, PayPal">
-            <img class="cc360-comp-logo" src="assets/images/logos/stripe.svg" alt="Stripe" loading="lazy">
-            <img class="cc360-comp-logo" src="assets/images/logos/paypal.svg" alt="PayPal" loading="lazy">
+            <img class="cc360-comp-logo" src="https://cdn.simpleicons.org/stripe/635bff" alt="Stripe" loading="lazy">
+            <img class="cc360-comp-logo" src="https://cdn.simpleicons.org/paypal/003087" alt="PayPal" loading="lazy">
           </div>
           <div class="cc360-comp-text" role="cell">
             <span class="cc360-comp-title">Payment processing</span>
