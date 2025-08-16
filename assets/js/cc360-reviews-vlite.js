@@ -17,7 +17,7 @@ let start = 0;                              // start index in all[]
 
 function tpl(r,i){
   const av = r.avatar.includes(PLACEHOLDER)
-      ? `<span class="c360-init" style="background:hsl(${i*37%360} 70% 50%)">${r.name[0]}</span>`
+      ? `<span class="c360-init" style="background:#0475FF;color:#fff;display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;font-weight:700;text-transform:uppercase">${(r.name?.[0]||'?')}</span>`
       : `<img class="c360-avatar" src="${r.avatar}" alt="${r.name}" loading="lazy">`;
   return `<div class="c360-card">
     <div class="c360-head">${av}
