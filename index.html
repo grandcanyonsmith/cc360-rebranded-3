@@ -2778,6 +2778,90 @@
         color: #94a3b8;
       }
     }
+
+    /* =============================================
+        UTILITIES
+    ============================================= */
+    .desktop-only { display: none; }
+    .mobile-only { display: block; }
+    @media (min-width: 769px) {
+      .desktop-only { display: block; }
+      .mobile-only { display: none; }
+    }
+
+    /* =============================================
+        3. THE 360 VIEW SECTION STYLES
+    ============================================= */
+    .cc360-overview-section {
+      padding: 5rem 2rem;
+    }
+    .cc360-overview-container {
+      margin: 0 auto;
+      max-width: 1180px;
+    }
+    .cc360-overview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .cc360-overview-col img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .cc360-overview-section h2 {
+      font-family: var(--font-sans);
+      font-weight: 800;
+      font-size: 2.5rem;
+      line-height: 1.15;
+      margin: 0 0 0.75rem;
+      color: #fff;
+    }
+    .cc360-overview-section p {
+      color: #cbd5e1;
+      margin: 0 0 0.75rem;
+    }
+    .cc360-overview-section h3 {
+      font-weight: 800;
+      font-size: 1.5rem;
+      margin: 1rem 0;
+      color: #fff;
+    }
+    .cc360-overview-highlight { color: #E2FF00; }
+    @media(max-width: 768px) {
+      .cc360-overview-grid { grid-template-columns: 1fr; text-align: center; }
+    }
+
+    /* =============================================
+        5. BOOK A DEMO SECTION STYLES
+    ============================================= */
+    .cc360-demo-section {
+      padding: 5rem 2rem;
+    }
+    .cc360-demo-wrap {
+      margin: 0 auto;
+      max-width: 1180px;
+    }
+    .cc360-demo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .cc360-demo-col img { width: 100%; height: auto; display: block; }
+    .cc360-demo-col h2 {
+      font-family: var(--font-sans);
+      font-weight: 800;
+      font-size: 2.5rem;
+      line-height: 1.15;
+      margin: 0 0 1rem;
+      color: #fff;
+    }
+    .cc360-demo-col p { color: #cbd5e1; margin: 0 0 2rem; }
+    @media(max-width: 768px) {
+      .cc360-demo-grid { grid-template-columns: 1fr; text-align: center; }
+    }
   </style>
 </head>
 
@@ -3932,8 +4016,27 @@
         </p>
       </div>
     </div>
+    </section>
+  
+  <!-- 3. THE 360 VIEW SECTION -->
+  <section class="cc360-overview-section" aria-labelledby="c360-overview-heading">
+    <div class="cc360-overview-container">
+      <div class="cc360-overview-grid">
+        <div class="cc360-overview-col desktop-only"></div>
+        <div class="cc360-overview-col">
+          <h2 id="c360-overview-heading"><strong>The 360 view</strong></h2>
+          <p>We don’t just give you the tools—we give you the exact templates, coaching, and blueprints we’ve used to sell over $30M in online courses</p>
+          <h3><span style="color:#ffffff"><strong>Over</strong></span> <span class="cc360-overview-highlight"><strong>3,000 users</strong></span></h3>
+          <p>In Course Creator 360</p>
+          <img src="https://assets.cdn.filesafe.space/c2DjRsOo4e13Od6ZTU6S/media/677fe314f97dd611eaf56b40.png" alt="Course Creator 360 overview" loading="lazy">
+        </div>
+        <div class="cc360-overview-col">
+          <img src="https://assets.cdn.filesafe.space/c2DjRsOo4e13Od6ZTU6S/media/679739e36ebbcf6745244a9f.png" alt="Course Creator 360 modules" loading="lazy">
+        </div>
+      </div>
+    </div>
   </section>
-
+  
   <!-- 4. INFO SECTION - PARALLAX SLIDER -->
   <section class="cc360-parallax-section" aria-labelledby="support-heading">
     <!-- Parallax Background -->
@@ -4037,44 +4140,21 @@
 
   <!-- 5. PROVEN TEMPLATES SECTION -->
   <section class="cc360-hero-section">
-    <div class="cc360-hero" role="region" aria-label="Course Creator 360 promotion">
-      <!-- Hero Icon (lightweight inline SVG) -->
-      <svg class="cc360-money" width="180" height="180" viewBox="0 0 180 180" aria-hidden="true" focusable="false">
-        <defs>
-          <linearGradient id="cash" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#28c1ff"/>
-            <stop offset="100%" stop-color="#006de0"/>
-          </linearGradient>
-        </defs>
-        <circle cx="90" cy="90" r="80" fill="url(#cash)"/>
-        <text x="90" y="105" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="64" font-weight="800" fill="#ffffff">$</text>
-      </svg>
-    
-      <!-- Value Prop -->
-      <h2>Proven by<br>$30,000,000&nbsp;in Digital Sales</h2>
-      <p>We've personally built and sold $30M+ in digital products to 40,000+ creators, coaches, and experts. We know what works&nbsp;— and we packaged it for you.</p>
-    
-      <!-- CTA -->
-      <a href="https://go.coursecreator360.com/cc360-demo" target="_blank" rel="noopener noreferrer" class="cc360-cta">Book&nbsp;A&nbsp;Demo</a>
-    
-      <!-- Feature Cards -->
-      <div class="cc360-cards">
-        <div class="cc360-card">
-          <img src="assets/images/course-page-mockup.webp"
-               alt="Battle‑tested templates"
-               width="160" height="160"
-               loading="lazy" decoding="async"
-               srcset="assets/images/course-page-mockup.webp 320w"
-               sizes="(max-width: 480px) 120px, 160px">
-          <p>Battle‑tested<br>Templates</p>
-        </div>
-    
-        <div class="cc360-card">
-          <img src="assets/images/milestone-blueprint-progress.webp"
-               alt="Step‑by‑step blueprints"
-               width="160" height="160"
-               loading="lazy" decoding="async">
-          <p>Step‑by‑step<br>Blueprints</p>
+    <div class="cc360-demo-section">
+      <div class="cc360-demo-wrap">
+        <div class="cc360-demo-grid">
+          <div class="cc360-demo-col cc360-demo-left">
+            <img src="https://assets.cdn.filesafe.space/c2DjRsOo4e13Od6ZTU6S/media/677ffe96be84ab2267c4acb7.png" alt="Product collage" loading="lazy">
+          </div>
+          <div class="cc360-demo-col cc360-demo-center">
+            <h2><strong>Proven by $30,000,000 in digital sales</strong></h2>
+            <p>We've personally built and sold $30M worth of digital products, to over 40,000 customers. We know what works</p>
+            <a href="https://go.coursecreator360.com/cc360-demo" target="_blank" rel="noopener noreferrer" class="cc360-cta">Book&nbsp;A&nbsp;Demo</a>
+          </div>
+          <div class="cc360-demo-col cc360-demo-right">
+            <img class="desktop-only" src="https://assets.cdn.filesafe.space/c2DjRsOo4e13Od6ZTU6S/media/6787d390abdf4af84a55a752.png" alt="Dashboard mockup" loading="lazy">
+            <img class="mobile-only" src="https://assets.cdn.filesafe.space/c2DjRsOo4e13Od6ZTU6S/media/67810dc4be84ab4b84c5f925.png" alt="Dashboard mockup" loading="lazy">
+          </div>
         </div>
       </div>
     </div>
@@ -4817,5 +4897,5 @@
     })();
   </script>
 
-</body>
-</html> 
+   </body>
+ </html> 
